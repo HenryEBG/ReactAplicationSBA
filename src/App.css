@@ -1,0 +1,58 @@
+:root {
+  --tec-color-text-primary: #434441;
+  --tec-color-icon-focus: #faaa44;
+  --tec-color-icon-error: #faaa44;
+  --tec-color-event-icon: #434441;
+  --tec-color-event-icon-hover: #4dcfe8;
+  --tec-color-accent-primary: #faaa44;
+  --tec-color-accent-primary-hover: #4dcfe8;
+  --tec-color-accent-primary-active: #faaa44;
+  --tec-color-accent-primary-background: #434441;
+  --tec-color-accent-secondary: #faaa44;
+  --tec-color-link-accent: #f04f3d;
+  --tec-color-link-accent-hover: #b91f0e;
+  --tec-color-button-primary: #434441;
+  --tec-color-background-events-bar-submit-button: #faaa44;
+  --tec-color-background-events-bar-submit-button-hover: #eb8706;
+}
+
+
+.navbar {
+  height: 50px;
+  width: 100vw;
+  background-color:var(--tec-color-accent-primary);
+  color:var(--tec-color-text-primary);
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.listItem {
+  margin-right: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.userPicture {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.myImage {
+  width:auto;
+  height: 20vh;
+}
+

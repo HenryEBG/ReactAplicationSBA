@@ -1,11 +1,32 @@
 import Footer from "../components/Footer"
 import Header from "../components/Header"
+import { useRef,useState,useEffect } from "react"
 
  function Login() {
+  //creating hooks for the inputs
+  const usernameInputRef = useRef();
+  const passwordInputRef = useRef();
+//creating a hook for manage users
+  const [users, setUsers] = useState([]);
+  //creating a hook for get the users from the API
+  const fetchUsers = async () => {
+    await fetch('https://fakestoreapi.com/users')
+      .then((res) => res.json())
+      .then((data) => {
+        setUsers(data);
+        console.log(data);
+      });
+  }
+
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+  
   return (
     <>
       {/* <Header/> */}
-      <form action="">
+      <form >
       <div className="login">
       
       <div className="insideContainer">
@@ -17,8 +38,8 @@ import Header from "../components/Header"
         <div className="titleLogin">Login to Our Store</div>
         
           <input className="inputLogin" type="text" placeholder="username"/>
-          <input className="inputLogin" type="text" placeholder="passowrd"/>
-          <button type="submit" className="submitLogin">Login</button>
+          <input className="inputLogin" type="password" placeholder="passowrd"/>
+          <button type="submit"  className="submitLogin">Login</button>
           
         
         </div>

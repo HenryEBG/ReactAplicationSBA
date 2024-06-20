@@ -9,6 +9,7 @@ import { useRef,useState,useEffect } from "react"
 //creating a hook for manage users
   const [users, setUsers] = useState([]);
   //creating a hook for get the users from the API
+  //async function to get the info from the API
   const fetchUsers = async () => {
     await fetch('https://fakestoreapi.com/users')
       .then((res) => res.json())
@@ -18,15 +19,31 @@ import { useRef,useState,useEffect } from "react"
       });
   }
 
-
+//hook to manipulate the function with the users from the API
   useEffect(() => {
     fetchUsers();
   }, []);
+
+  const  handleSubmit = (event)=>{
+    event.preventDefault();
+    console.log(usernameInputRef.current.value)
+    console.log(passwordInputRef.current.value)
+    const founded=users.find((user) => (user.username== usernameInputRef.current.value) && (user.password==passwordInputRef.current.value))
+    if(founded==undefined){
+      //imprimir mensaje de que no se encuentra y hacer focus en el username
+      usernameInputRef.current.focus();
+      console.log("not founded")
+    }else {
+      //se encontro y deberiamos guardar los datos en una variable estado y recargar la pagina
+      console.log(founded)
+    }
+    }
   
+
   return (
     <>
       {/* <Header/> */}
-      <form >
+      <form onSubmit={handleSubmit}>
       <div className="login">
       
       <div className="insideContainer">
@@ -37,8 +54,8 @@ import { useRef,useState,useEffect } from "react"
         <div className="rightContainer">
         <div className="titleLogin">Login to Our Store</div>
         
-          <input className="inputLogin" type="text" placeholder="username"/>
-          <input className="inputLogin" type="password" placeholder="passowrd"/>
+          <input className="inputLogin" ref={usernameInputRef} type="text" placeholder="username"/>
+          <input className="inputLogin" ref={passwordInputRef} type="password" placeholder="passowrd"/>
           <button type="submit"  className="submitLogin">Login</button>
           
         

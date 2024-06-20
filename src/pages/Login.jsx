@@ -1,4 +1,4 @@
-export default function Login() {
+ function Login() {
   return (
     <div className="container">
       <div className="title"></div>
@@ -18,3 +18,5 @@ export default function Login() {
     </div>
   )
 }
+
+export default Login

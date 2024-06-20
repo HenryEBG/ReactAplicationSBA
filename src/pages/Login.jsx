@@ -1,21 +1,34 @@
+import Footer from "../components/Footer"
+import Header from "../components/Header"
+
  function Login() {
   return (
-    <div className="container">
-      <div className="title"></div>
-      {/* title */}
-      <div>
-      <div>
-        {/* image */}
-      </div>
+    <>
+      {/* <Header/> */}
+      <form action="">
+      <div className="login">
       
-      <div className="formContainer">
-        <input type="text" />
-        <input type="text" />
-        <input type="button" />
+      <div className="insideContainer">
+        <div className="leftContainer">
+        <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes" className="loginImage" />
+        </div>
+        
+        <div className="rightContainer">
+        <div className="titleLogin">Login to Our Store</div>
+        
+          <input className="inputLogin" type="text" placeholder="username"/>
+          <input className="inputLogin" type="text" placeholder="passowrd"/>
+          <button type="submit" className="submitLogin">Login</button>
+          
+        
+        </div>
+        
+      </div>   
       </div>
-      </div>
+      </form>
+      {/* <Footer/> */}
+    </>
 
-    </div>
   )
 }
 

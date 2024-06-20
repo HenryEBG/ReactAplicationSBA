@@ -16,6 +16,61 @@
   --tec-color-background-events-bar-submit-button-hover: #eb8706;
 }
 
+/* classes for the login page */
+.login {
+  height: calc(100vh-50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.insideContainer {
+  width:60%;
+  height:75%;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+-webkit-box-shadow: 14px 11px 12px 7px rgba(0,0,0,0.75);
+-moz-box-shadow: 14px 11px 12px 7px rgba(0,0,0,0.75);
+box-shadow: 14px 11px 12px 7px rgba(0,0,0,0.75);
+}
+
+.leftContainer, .rightContainer {
+  flex-wrap: 1;
+}
+
+.rightContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.titleLogin {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 20px;
+}
+
+.inputLogin {
+  margin:10px;
+}
+
+.submitLogin {
+  border: #434441 solid 2px;
+  background-color: #f04f3d;
+  color: #4dcfe8;
+  width: 70%;
+}
+
+
+
+
+.loginImage{
+  height: calc(vh-50px);
+  width: 70%;
+}
 
 .navbar {
   height: 50px;
@@ -27,17 +82,27 @@
   justify-content: space-between;
 }
 
+.welcome {
+  font-weight: bolder;
+  margin-left: 20px;
+  cursor:pointer;
+  font-size: 16px;
+  color: #4dcfe8;
+}
+
 .list {
   display: flex;
   align-items: center;
   list-style: none;
 }
 
-.listItem {
+.navItem {
   margin-right: 20px;
   font-weight: 500;
   cursor: pointer;
 }
+
+
 
 .userPicture {
   width: 32px;

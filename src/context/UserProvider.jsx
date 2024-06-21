@@ -13,7 +13,8 @@ const sessionState = {
   userLogin: false,
   username: "",
   name: "",
-  cart: {},
+  category:"all",
+  cart: {}
 }
 //create the function called for the dispatch element of 
 //the reduce hook
@@ -25,6 +26,9 @@ const sessionReducer = (state, action) => {
     state.username=action.value;
     state.name=action.value;
     return {...state}
+    case 'FILTER':
+      state.category=action.value;
+      return {...state}
     default:
       return state;
   }
@@ -47,7 +51,13 @@ const UserProvider = ({ children }) => {
 
 
   return (
-    <UserContext.Provider value={{ userLogin: sessionState.userLogin, username: sessionState.username, name: sessionState.name, products: sessionState.products, users: sessionState.users, dispatch }}>
+    <UserContext.Provider value={{ 
+      userLogin: sessionState.userLogin, 
+      username: sessionState.username, 
+      name: sessionState.name, 
+      products: sessionState.products, 
+      users: sessionState.users, 
+      dispatch }}>
       {children}
     </UserContext.Provider>
   )

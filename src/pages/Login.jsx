@@ -2,14 +2,14 @@ import Footer from "../components/Footer"
 import Header from "../components/Header"
 import { useRef,useState,useEffect } from "react"
 import { useUserContext } from "../context/UserProvider";
-import {useNavigate} from "react-router-dom"
+
 
  function Login() {
   //creating hooks for the inputs
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
   const myReduce = useUserContext();
-  const navigate = useNavigate();
+
 //creating a hook for manage users
   const [users, setUsers] = useState([]);
   //creating a hook for get the users from the API
@@ -36,11 +36,7 @@ import {useNavigate} from "react-router-dom"
       //imprimir mensaje de que no se encuentra y hacer focus en el username
       usernameInputRef.current.focus();
     }else {
-        console.log(myReduce.userLogin)
         myReduce.dispatch({type:'LOGIN', value:usernameInputRef.current.value})
-        console.log(myReduce.userLogin)
-        navigate("/");
-      //se encontro y deberiamos guardar los datos en una variable estado y recargar la pagina
     }
     }
   

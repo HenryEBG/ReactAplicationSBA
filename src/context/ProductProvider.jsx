@@ -17,7 +17,6 @@ const productReducer = (state, action) => {
     state.products=action.value;
     console.log(state)
     return {...state}
-    
     default:
       return state;
   }

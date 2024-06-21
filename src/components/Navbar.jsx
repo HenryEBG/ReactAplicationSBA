@@ -4,10 +4,11 @@ import { useProductContext } from '../context/ProductProvider.jsx'
 import { useState, useEffect } from "react";
 
 
-
-const Navbar = ({ user }) => {
+const Navbar = () => {
   const userData = useUserContext();
   const myProductData = useProductContext();
+//create a hook useState to save all categories array
+//to make filters.
   const [categories, setCategories] = useState([]);
 
   const fetchCategories = async () => {
@@ -18,7 +19,6 @@ const Navbar = ({ user }) => {
         console.log(data);
       });
   }
-
 
   useEffect(() => {
     fetchCategories();
@@ -38,7 +38,7 @@ const Navbar = ({ user }) => {
       {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button> */}
       {/* <div className="collapse navbar-collapse" id="navbarSupportedContent"> */}
       <ul className="list">
-
+{/* different menu depending of the state of the user  */}
         {userData.userLogin ? (
           <>
             <NavbarElement link="/" text={<>Filter <select name="categories" id="categories" onChange={handleFilter}>
@@ -56,8 +56,6 @@ const Navbar = ({ user }) => {
 
 
       </ul>
-      {/* </div> */}
-      {/* </div> */}
     </nav>
 
   )

@@ -4,16 +4,10 @@ import { useProductContext } from '../context/ProductProvider.jsx'
 
 function Section(){
 
-  const [products, setProducts] = useState([]);
+  // I use the product context hook
   const myReduce = useProductContext();
-  console.log(myReduce)
-
-
-  
   return (
-
-
-
+        //I map the array to show the products in different cards.
         <section className="py-5">
             <div className="container px-4 px-lg-5 mt-5">
                 <div id="productContainer" className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center ">

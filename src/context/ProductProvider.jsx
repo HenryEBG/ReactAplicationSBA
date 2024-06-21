@@ -5,6 +5,7 @@ const ProductContext = createContext();
 const useProductContext = () => {
   return useContext(ProductContext);
 }
+//state of the context hook
 const productState = {
   products: {}
 }
@@ -22,7 +23,6 @@ const productReducer = (state, action) => {
   }
 
 }
-
 
 //create the provider of the context hook
 const ProductProvider = ({ children }) => {

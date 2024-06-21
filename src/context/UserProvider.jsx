@@ -36,14 +36,6 @@ const sessionReducer = (state, action) => {
 
 }
 
-
-
-
-
-
-
-
-
 //create the provider of the context hook
 const UserProvider = ({ children }) => {
   //create the usereducer hook
@@ -51,6 +43,8 @@ const UserProvider = ({ children }) => {
 
 
   return (
+
+    // we add the initial state to the context provider.
     <UserContext.Provider value={{ 
       userLogin: sessionState.userLogin, 
       username: sessionState.username, 

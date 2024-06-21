@@ -8,9 +8,11 @@ import { useUserContext } from "../context/UserProvider";
   //creating hooks for the inputs
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
+  //using the useUserContext hook a combination of reduce and context
   const myReduce = useUserContext();
 
-//creating a hook for manage users
+//creating a hook for manage users 
+// It is not need to add this info the context because no other part interact with this arrray
   const [users, setUsers] = useState([]);
   //creating a hook for get the users from the API
   //async function to get the info from the API
@@ -19,7 +21,6 @@ import { useUserContext } from "../context/UserProvider";
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
-        console.log(data);
       });
   }
 
@@ -28,9 +29,9 @@ import { useUserContext } from "../context/UserProvider";
     fetchUsers();
   }, []);
 
+  //hantle function that submit the form to login the user.
   const  handleSubmit = (event)=>{
     event.preventDefault();
-
     const founded=users.find((user) => (user.username== usernameInputRef.current.value) && (user.password==passwordInputRef.current.value))
     if(founded==undefined){
       //imprimir mensaje de que no se encuentra y hacer focus en el username
@@ -46,7 +47,6 @@ import { useUserContext } from "../context/UserProvider";
       {/* <Header/> */}
       <form onSubmit={handleSubmit}>
       <div className="login">
-      
       <div className="insideContainer">
         <div className="leftContainer">
         <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes" className="loginImage" />

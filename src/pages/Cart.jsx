@@ -6,7 +6,7 @@ function Cart () {
   return(
     <>
     <Header/>
-    <Section/>
+    <Section />
     <Footer/>
     </>
   )

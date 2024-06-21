@@ -15,6 +15,7 @@ function Card({data}) {
         </div>
       </div>
       {/* <!-- Product actions--> */}
+      
     <form action="http://localhost:3000/carts/add" method="PATCH" id={data.id}> 
     <input type="hidden" name="id" value={data.id} />
     <div className="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-center ">

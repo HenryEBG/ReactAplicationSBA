@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const userData = useUserContext();
+  console.log(userData)
   const myProductData = useProductContext();
 //create a hook useState to save all categories array
 //to make filters.
@@ -26,7 +27,15 @@ const Navbar = () => {
 
   const handleFilter = (event) => {
     event.preventDefault();
-    myProductDataData.dispatch({ type: "FILTER", value: event.target.value })
+    myProductData.dispatch({ type: "FILTER", value: event.target.value })
+  }
+
+  const handleLogout = (event) => {
+   // event.preventDefault()
+    console.log("i push the button")
+    userData.dispatch({type: "LOGOUT"})
+
+
   }
 
   return (
@@ -41,17 +50,22 @@ const Navbar = () => {
 {/* different menu depending of the state of the user  */}
         {userData.userLogin ? (
           <>
-            <NavbarElement link="/" text={<>Filter <select name="categories" id="categories" onChange={handleFilter}>
+          <NavbarElement link="/" text={<>Store</>} classname="navItem" />
+            <NavbarElement link="/" 
+            text={<>Filter <select name="categories" id="categories" onChange={handleFilter}>
               <option value="all">All Products </option>
               {categories && categories.map((category) => (
                 <option key={category} value={category}>{category} </option>
               ))}
-            </select></>} classname="navItem" />
-            <NavbarElement link="/cart" text={<>Cart</>} classname="navItem" />
-            <NavbarElement link="/login" text={<>Logout</>} classname="navItem" />
+            </select></>} 
+            classname="navItem" />
+
+            <NavbarElement link="/cart" text={<>{`Cart ( ${userData.cart.length} )`}</>} classname="navItem" />
+            <a onClick={handleLogout} href="/login"  className="navItem">Logout</a> 
+            
           </>
         ) : (
-          <NavbarElement link="/login" text={<>Login</>} classname="navItem" />
+          <NavbarElement link="#" text={<>Login</>} classname="navItem" />
         )}
 
 

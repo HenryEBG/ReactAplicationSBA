@@ -14,7 +14,6 @@ const productState = {
 const productReducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_PRODUCTS':
-      console.log(state)
     state.products=action.value;
     console.log(state)
     return {...state}

@@ -1,4 +1,7 @@
+import { useUserContext } from '../context/UserProvider.jsx'
+
 function Card({data}) {
+  const userData=useUserContext();
   return (
     <div className="card h-100 ">
       {/* <!-- Sale badge--> */}
@@ -16,15 +19,12 @@ function Card({data}) {
       </div>
       {/* <!-- Product actions--> */}
       
-    <form action="http://localhost:3000/carts/add" method="PATCH" id={data.id}> 
-    <input type="hidden" name="id" value={data.id} />
     <div className="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-center ">
         <div className="text-center">
-        <input className="btn btn-outline-dark mt-auto ml-2" type="submit" id="${product.id}"value="Add to Cart"></input>
+        <button className="btn btn-outline-dark mt-auto ml-2" onClick={() => {userData.dispatch({type:"ADD_PRODUCT",value:data})}}>Add to Cart</button>
         
         </div>
     </div>
-    </form>
       {/* <!-- Product actions--> */}
       {/* <form action="http://localhost:3000/carts/delete" method="PATCH" id="form${product.product.id}">
         <input type="hidden" name="id" value={data.id} />

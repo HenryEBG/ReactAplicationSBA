@@ -1,12 +1,12 @@
 import Footer from "../components/Footer"
 import Header from "../components/Header"
-import Section from "../components/Section"
+import SectionCart from "../components/SectionCart"
 
 function Cart () {
   return(
     <>
     <Header/>
-    <Section />
+    <SectionCart />
     <Footer/>
     </>
   )

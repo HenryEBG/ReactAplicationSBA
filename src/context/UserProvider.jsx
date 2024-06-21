@@ -13,22 +13,35 @@ const sessionState = {
   userLogin: false,
   username: "",
   name: "",
-  category:"all",
-  cart: {}
+  category: "all",
+  cart: []
 }
 //create the function called for the dispatch element of 
 //the reduce hook
 const sessionReducer = (state, action) => {
   switch (action.type) {
     case 'LOGIN':
+      state.userLogin = true;
+      state.username = action.value;
+      state.name = action.value;
+      return { ...state }
 
-    state.userLogin=true;
-    state.username=action.value;
-    state.name=action.value;
-    return {...state}
-    case 'FILTER':
-      state.category=action.value;
-      return {...state}
+    case 'LOGOUT':
+      console.log("ingrese")
+      console.log(state)
+      state.userLogin = false;
+      state.username = "";
+      state.name = "";
+      return { ...state }
+    case 'ADD_PRODUCT':
+      console.log(state)
+      let newState = { ...state }
+      newState = { ...newState, cart: [...newState.cart, action.value] }
+      return newState
+    case 'FILTER': {
+      state.category = action.value;
+      return { ...state }
+    }
     default:
       return state;
   }
@@ -45,13 +58,14 @@ const UserProvider = ({ children }) => {
   return (
 
     // we add the initial state to the context provider.
-    <UserContext.Provider value={{ 
-      userLogin: sessionState.userLogin, 
-      username: sessionState.username, 
-      name: sessionState.name, 
-      products: sessionState.products, 
-      users: sessionState.users, 
-      dispatch }}>
+    <UserContext.Provider value={{
+      userLogin: state.userLogin,
+      username: state.username,
+      name: state.name,
+      category: state.category,
+      cart: state.cart,
+      dispatch
+    }}>
       {children}
     </UserContext.Provider>
   )

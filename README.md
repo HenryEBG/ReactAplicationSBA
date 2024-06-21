@@ -6,6 +6,19 @@ A fake store is created using a fake API https://fakestoreapi.com/
 
 ### Netlify link https://myfakestoresba.netlify.app/
 
+## Credential to try the App.
+{
+  
+    "username": "johnd",
+    "password": "m38rmF$",
+}
+{
+
+    "username": "mor_2314",
+    "password": "83r5^_",
+
+}
+
 The project use modularity with React. To make a page very responsive for the user.
 The project include the next section.
 
@@ -73,5 +86,13 @@ This component display a card of a product
 ### NavBarElement
 This component display an li element of the nav.
 
+#### Unsolved problems.
 
+For now there are few thinks but important that made the project don't work like I want.
+
+I'm working on:
+Filter Products (It is easy with the API but I want to try to filter directly from the array)
+Add productos to the cart.
+Show the cart.  I don't add products for now. If will be easy just adding the products. I will try to finished and change this.
+Logout.  Logout from the site and return to the login page.
 

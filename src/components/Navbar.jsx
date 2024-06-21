@@ -31,10 +31,8 @@ const Navbar = () => {
   }
 
   const handleLogout = (event) => {
-   // event.preventDefault()
-    console.log("i push the button")
+    event.preventDefault()
     userData.dispatch({type: "LOGOUT"})
-
 
   }
 
@@ -61,7 +59,7 @@ const Navbar = () => {
             classname="navItem" />
 
             <NavbarElement link="/cart" text={<>{`Cart ( ${userData.cart.length} )`}</>} classname="navItem" />
-            <a onClick={handleLogout} href="/login"  className="navItem">Logout</a> 
+            <a onClick={handleLogout} href="#"  className="navItem">Logout</a> 
             
           </>
         ) : (
